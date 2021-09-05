@@ -8,11 +8,12 @@ class SpecificationsRepository implements ISpecificationsRepository {
     private repository: Repository<Specification>;
 
     constructor(){
-        this.repository = getRepository(Specification);
+        //this.repository = getRepository(Specification);
     }
 
    async create({ name, description }: ICreateSpecificationsRepositoryDTO): Promise<void> {
-        const specification = this.repository.create({
+        this.repository = getRepository(Specification);
+       const specification = this.repository.create({
             name, 
             description,
         })
